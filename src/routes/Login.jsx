@@ -3,11 +3,15 @@ import {useNavigate, Link} from 'react-router-dom'
 
 
 
+
 const Login =()=>{
+
+
     const usuario =useRef();
     const senha =useRef();
 
     const [usuarios,setUsuarios]=useState([]);
+
     const navigate = useNavigate();
 
     function validade(){
@@ -24,39 +28,33 @@ const Login =()=>{
     const handleSubmit =(e)=>{
         e.preventDefault();
         if(validade()){
-            //criando a autenticação 
             let token =
                 Math.random().toString(16).substring(2)+
                 Math.random().toString(16).substring(2)
                 sessionStorage.setItem("usuario",usuario.current.value);
                 sessionStorage.setItem("senha", token);
-                //chama o componente dashboard ao logar corretamente.
-                navigate("/Dashboard")       
+                navigate("/dashboard")       
         }else{
             alert("usuario/senha inválidos")
         }
     }
 
-    //Hook- useEffect vai buscar os dados para o login
-
     useEffect(()=>{
-        //url que o json server criou (API)
         fetch("http://localhost:5000/usuarios/")
-        //promise
         .then((res)=>{
             return res.json();
         })
-        //setUsuarios recebe as alterações 
         .then((res)=>{
             setUsuarios(res);
         })
-        //retorna um array vazio
     },[])
 
     return(
+
         <section className="container">
             <div className="container-login">
             <div className="login">
+
                 <form className="login-form" onSubmit={handleSubmit}>
                     <span className="titulo-login">Faça seu Login</span>
                     <div className="w-input">
@@ -77,9 +75,12 @@ const Login =()=>{
                         />
                         <span placeholder="Senha"></span>
                     </div>
+
+
                     <div className="login-btn">
                         <button type="submit" className="login-form-btn">Login</button>
                     </div>
+                    
                     <ul className="utilidades">
                         <li>
                             <span className="text1">Esqueçeu sua senha?</span>
@@ -87,7 +88,7 @@ const Login =()=>{
 
                         <li>
                             <span className="text1">Não tem conta?</span>
-                           <Link to="/cadastrar" className="text2">
+                           <Link to="/cadastrarUsuario" className="text2">
                                 Criar
                            </Link>
                         </li>

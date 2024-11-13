@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import App from './App.jsx'
-import Error from './routes/Error/Error.jsx'
-import Home from './routes/Home/Home.jsx'
+import Error from './routes/Error.jsx'
+import Home from './routes/Home.jsx'
 import Sobre from './routes/Sobre.jsx'
 import Login from './routes/Login.jsx'
-import Solução from './routes/Solução.jsx'
+import Solucao from './routes/Solucao.jsx'
 import Cadastrar from './routes/Cadastrar.jsx'
-import './index.css'
+import Dashboard from './routes/Dashboard.jsx'
 
 
 const router =createBrowserRouter([{
@@ -19,8 +19,9 @@ const router =createBrowserRouter([{
     {path:'/',element:<Home/>},
     {path:'/login',element:<Login/>},
     {path:'/sobre',element:<Sobre/>},
-    {path:'/solucao',element:<Solução/>},
-    {path:'/cadastar',element:<Cadastrar/>},
+    {path:'/solucao',element:<Solucao/>},
+    {path:'/cadastrar',element:<Cadastrar/>},
+    {path:'/dashboard',element:<Dashboard/>},
    ]
 }])
 

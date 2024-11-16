@@ -11,6 +11,7 @@ const Home = () => {
   const nextSlide = () => {
     setCurrentSlide((currentSlide + 1) % images.length);
   };
+
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + images.length) % images.length);
   };
@@ -24,35 +25,26 @@ const Home = () => {
         </p>
       </header>
 
-<<<<<<< HEAD
       <div className="relative w-full max-w-3xl mb-10">
-        <div className="w-full h-64 bg-gray-800 rounded-lg overflow-hidden">
+        <div className="relative w-full max-w-3xl h-64 mb-10">
           <img
             src={images[currentSlide]}
             alt={`Slide ${currentSlide + 1}`}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rounded-lg"  // Altere para object-contain
           />
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-indigo-500 text-white px-3 py-1 rounded-full hover:bg-indigo-600"
+          >
+            &#10094;
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-indigo-500 text-white px-3 py-1 rounded-full hover:bg-indigo-600"
+          >
+            &#10095;
+          </button>
         </div>
-=======
-      <div className="relative w-full max-w-3xl h-64 mb-10">
-        <img
-          src={images[currentSlide]}
-          alt={`Slide ${currentSlide + 1}`}
-          className="w-full h-full object-cover rounded-lg"
-        />
->>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-indigo-500 text-white px-3 py-1 rounded-full hover:bg-indigo-600"
-        >
-          &#10094;
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-indigo-500 text-white px-3 py-1 rounded-full hover:bg-indigo-600"
-        >
-          &#10095;
-        </button>
       </div>
 
       <section className="max-w-4xl mx-auto text-center mb-12">
@@ -64,10 +56,6 @@ const Home = () => {
         </p>
       </section>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
           <h3 className="text-xl font-bold text-indigo-400 mb-3">Sustentabilidade</h3>

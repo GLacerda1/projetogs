@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Gojo from '../assets/gojo.jpg'
-import Pika from '../assets/1731609577586dkvb3uu8.webp'
+import Logo from '../assets/Logo.png'
 
 const navigation = [
 
@@ -34,7 +34,7 @@ export default function Example() {
             <div className="flex shrink-0 items-center">
               <img
                 alt="Your Company"
-                src={Pika}
+                src={Logo}
                 className="h-8 w-auto"
               />
             </div>

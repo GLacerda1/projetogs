@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
 const Solucao = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center py-10 px-4">
@@ -50,11 +54,23 @@ const Solucao = () => {
       <footer className="text-center mt-10">
         <h3 className="text-2xl font-semibold text-indigo-400">Junte-se à Revolução da Energia Limpa</h3>
         <p className="text-gray-300 mt-2 mb-6 max-w-xl mx-auto">
+<<<<<<< HEAD
           Conheça mais sobre nossos avanços com hélio-3 e seja parte de um futuro sustentável. Siga-nos para ficar por dentro das novidades.
         </p>
+=======
+          Conheça mais sobre nossos avanços com hélio-3 e seja parte de um futuro sustentável. Acesse nosso site ou siga-nos para ficar por dentro das novidades.
+        </p>
+        <button className="bg-indigo-500 text-white px-6 py-2 rounded-md font-semibold hover:bg-indigo-600 transition duration-300">
+          Saiba Mais
+        </button>
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
       </footer>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default Solucao;
+=======
+export default Solucao;
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978

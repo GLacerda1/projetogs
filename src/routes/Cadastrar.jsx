@@ -12,6 +12,10 @@ const CadastrarUsuario = () => {
 
   const navigate = useNavigate();
 
+<<<<<<< HEAD
+=======
+  // Determina o método de requisição (POST ou PUT)
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
   let metodo = 'post';
   if (id) {
     metodo = 'put';
@@ -23,7 +27,11 @@ const CadastrarUsuario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     fetch(`http://localhost:5000/usuarios`, {
+=======
+    fetch(`http://localhost:5000/usuarios/${id ? id : ''}`, {
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
       method: metodo,
       headers: {
         'Content-Type': 'application/json',
@@ -33,6 +41,10 @@ const CadastrarUsuario = () => {
       navigate('/login');
     });
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978
   useEffect(() => {
     if (id) {
       fetch(`http://localhost:5000/usuarios/${id}`)
@@ -97,4 +109,8 @@ const CadastrarUsuario = () => {
   );
 };
 
+<<<<<<< HEAD
 export default CadastrarUsuario;
+=======
+export default CadastrarUsuario;
+>>>>>>> 763bf4c85e0b252c2c8f513124b42c3d09777978

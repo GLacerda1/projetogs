@@ -1,124 +1,105 @@
-import {useRef, useState,useEffect} from 'react'
-import {useNavigate, Link} from 'react-router-dom'
-//import Dashboard from './Dashboard'
+import { useRef, useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
+const Login = () => {
+  const usuario = useRef();
+  const senha = useRef();
+  const [usuarios, setUsuarios] = useState([]);
+  const navigate = useNavigate();
 
-
-const Login =()=>{
-
-    //Hook-useRef- pega a referencia de um componente ou elemento do DOM
-    const usuario =useRef();
-    const senha =useRef();
-
-    //Hook-useState - Manipula o estado da variavel
-    const [usuarios,setUsuarios]=useState([]);
-
-    //Hook - useNavigate - redireciona para o componente
-    const navigate = useNavigate();
-
-    //criando validação de login
-
-    function validade(){
-        for(let i =0; i <usuarios.length; i++){
-            if(
-                usuarios[i].usuario ==usuario.current.value &&
-                usuarios[i].senha == senha.current.value
-            ){
-                return true;
-            }
-        }
+  function validade() {
+    for (let i = 0; i < usuarios.length; i++) {
+      if (
+        usuarios[i].usuario === usuario.current.value &&
+        usuarios[i].senha === senha.current.value
+      ) {
+        return true;
+      }
     }
+  }
 
-    //criando a função handleSubmit
-
-    const handleSubmit =(e)=>{
-        //previne que sua pagina faça qualquer modificação ex. load
-        e.preventDefault();
-        if(validade()){
-            //criando a autenticação 
-            let token =
-                Math.random().toString(16).substring(2)+
-                Math.random().toString(16).substring(2)
-                sessionStorage.setItem("usuario",usuario.current.value);
-                sessionStorage.setItem("senha", token);
-                //chama o componente dashboard ao logar corretamente.
-                navigate("/dashboard")       
-        }else{
-            alert("usuario/senha inválidos")
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validade()) {
+      let token =
+        Math.random().toString(16).substring(2) +
+        Math.random().toString(16).substring(2);
+        sessionStorage.setItem('usuario', usuario.current.value);
+        sessionStorage.setItem('senha', token);
+        navigate('/dashboard');
+    } else {
+      alert('Usuário/Senha inválidos');
     }
+  };
 
-    //Hook- useEffect vai buscar os dados para o login
+  useEffect(() => {
+    fetch('http://localhost:5000/usuarios/')
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setUsuarios(res);
+      });
+  }, []);
 
-    useEffect(()=>{
-        //url que o json server criou (API)
-        fetch("http://localhost:5000/usuarios/")
-        //promise
-        .then((res)=>{
-            return res.json();
-        })
-        //setUsuarios recebe as alterações 
-        .then((res)=>{
-            setUsuarios(res);
-        })
-        //retorna um array vazio
-    },[])
+  return (
+    <section className="h-screen flex items-center justify-center bg-gray-900">
+      <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Faça seu Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="usuario" className="block text-sm font-medium text-gray-600">
+              Usuário
+            </label>
+            <input
+              type="text"
+              id="usuario"
+              ref={usuario}
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite seu usuário"
+            />
+          </div>
 
-    return(
+          <div className="mb-6">
+            <label htmlFor="senha" className="block text-sm font-medium text-gray-600">
+              Senha
+            </label>
+            <input
+              type="password"
+              id="senha"
+              ref={senha}
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite sua senha"
+            />
+          </div>
 
-        <section className="container">
-            <div className="container-login">
-            <div className="login">
+          <button
+            type="submit"
+            className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Login
+          </button>
 
-                {/*Form*/}
-                <form className="login-form" onSubmit={handleSubmit}>
-                    {/*Titulo do login*/}
-                    <span className="titulo-login">Faça seu Login</span>
-                    {/*Campo input do usuario*/}
-                    <div className="w-input">
-                        <input
-                            type="text"
-                            className="input-form"
-                            id="usuario"
-                            ref={usuario}                        
-                        />
-                        <span placeholder="usuario"></span>
-                    </div>
-                        {/*Campo input do senha*/}
-                    <div className="w-input">
-                        <input
-                            type="password"
-                            className="input-form"
-                            id="senha"
-                            ref={senha}
-                        />
-                        <span placeholder="Senha"></span>
-                    </div>
+          <div className="mt-4 text-center">
+            <ul className="space-y-2">
+              <li>
+                <span className="text-sm text-gray-600 hover:text-indigo-500 cursor-pointer">
+                  Esqueceu sua senha?
+                </span>
+              </li>
 
-                    {/*Botão do Login */}
+              <li>
+                <span className="text-sm text-gray-600">Não tem conta?</span>{' '}
+                <Link to="/cadastrar" className="text-sm text-indigo-600 hover:underline">
+                  Criar uma conta
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+};
 
-                    <div className="login-btn">
-                        <button type="submit" className="login-form-btn">Login</button>
-                    </div>
-
-                    {/*Utils*/}
-                    
-                    <ul className="utilidades">
-                        <li>
-                            <span className="text1">Esqueçeu sua senha?</span>
-                        </li>
-
-                        <li>
-                            <span className="text1">Não tem conta?</span>
-                           <Link to="/cadastrarUsuario" className="text2">
-                                Criar
-                           </Link>
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            </div>
-        </section>
-    )
-}
-export default Login
+export default Login;

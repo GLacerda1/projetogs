@@ -34,13 +34,6 @@ Para aqueles que desejam se envolver mais diretamente com o projeto, oferecemos 
 
 Acreditamos que, juntos, podemos construir um futuro mais sustentável e transformador!
 
-## **Tecnologias Utilizadas**
-
-    Frontend: HTML, CSS, JavaScript
-    Backend: [Inserir tecnologia de backend, caso aplicável]
-    Banco de Dados: [Inserir tecnologia de banco de dados, caso aplicável]
-    Autenticação: [Descrição do sistema de autenticação, por exemplo, OAuth, JWT, etc.]
-
 ## **Contribua para o Projeto**
 
 A Black Tech acredita na importância da colaboração para atingir seus objetivos. Se você tem interesse em contribuir com o projeto ou tem sugestões, não hesite em entrar em contato conosco. Juntos, podemos transformar o futuro da energia!

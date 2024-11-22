@@ -35,3 +35,5 @@ Para aqueles que desejam se envolver mais diretamente com o projeto, oferecemos 
 Acreditamos que, juntos, podemos construir um futuro mais sustentável e transformador!
 
 ## **Contribua para o Projeto**
+
+### A Black Tech acredita na importância da colaboração para atingir seus objetivos. Se você tem interesse em contribuir com o projeto ou tem sugestões, não hesite em entrar em contato conosco. Juntos, podemos transformar o futuro da energia!

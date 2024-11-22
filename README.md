@@ -1,4 +1,3 @@
-<<<<<<< main
 # **Site Black Tech**
 
 Bem-vindo ao site da Black Tech, uma empresa inovadora que está na vanguarda da tecnologia e sustentabilidade. Nosso foco é o desenvolvimento e promoção de soluções energéticas sustentáveis, com ênfase no uso de hélio-3 como uma fonte limpa e promissora de energia.
@@ -44,4 +43,3 @@ Black Tech - Integrantes:
 RM 558401 - Melyssa Huang Gonçalves
 RM 558096 - Gabriel Luni Nakashima
 RM 558307 - Gabriel Lacerda Araujo
->>>>>>> dev
